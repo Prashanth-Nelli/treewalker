@@ -2,7 +2,7 @@ treewalker
 ==========
 
 [![NPM Version](https://img.shields.io/npm/v/treewalker.svg?style=flat)](https://www.npmjs.org/package/treewalker)
-[![Build Status](https://travis-ci.org/Prashanth-Nelli/treewalker.svg?branch=master)](https://travis-ci.org/Prashanth-Nelli/treewalker)
+
 
 A simple recursive tree walker
 
