@@ -37,6 +37,16 @@ after visiting each node in the parent node this callback function is called wit
 
 parameter
 
+```Note:-  this method should only used for traversing the tree and you visit every node in the tree.```
+
+so callback function should be used for logging the properties are storing node values into other variables.
+
+in the callback u should not add any properties to object u get in the callback for those operations use the 
+    
+```javascript
+		 resolveTree
+``` 
+    
 
 ####In Browser:-
 
@@ -121,7 +131,9 @@ resolveTree expects three parameters ``` parentnode,childkey,callback function `
 
 ```childkey:-``` second one childkey is the key  which holds the children of parentnode
 
-```callback``` function should contain compare logic and it should return true when match found
+```callback``` function should contain compare logic and it should return true when match found 
+
+
 
 for Example:-
 
@@ -145,17 +157,15 @@ var node = {
 
 	function callback(obj) {
 		if(obj.name=="ch1"){
-			myResult=obj;
-			return true;
+			obj.childs.push({
+			   name : 'ch4',
+			   childs : []
+		     	});
+		     return true;
 		}
 	};
 	
 	window.resolveTree(node, 'childs', callback);
-	
-	myResult.childs.push({
-		name:'ch4',
-		childs:[]
-	});
 	
 	console.log(node);
 
@@ -163,10 +173,92 @@ var node = {
 ####output:-
 
 ```javascript
-	
+
+{
+	name : 'parent',
+	childs : [{
+		name : 'ch1',
+		childs : [{
+			name : 'ch2',
+			childs : []
+		}, {
+			name : 'ch3',
+			childs : []
+		},{
+			name:'ch4',
+			childs:[]
+		}]
+	}]
+};	
 
 
 ```
+
+
+####In Node.js:-
+
+
+```javascript
+
+var tree = require('treewalker');
+
+var myResult={};
+
+var node = {
+	name : 'parent',
+	childs : [{
+		name : 'ch1',
+		childs : [{
+			name : 'ch2',
+			childs : []
+		}, {
+			name : 'ch3',
+			childs : []
+		}]
+	}]
+};
+
+	function callback(obj) {
+		if (obj.name == "ch1") {
+			obj.childs.push({
+			   name : 'ch4',
+			   childs : []
+			});
+		return true;
+	    }
+	};
+	
+	tree.resolveTree(node, 'childs', callback);
+
+	console.log(node);
+
+```
+####output:-
+
+```javascript
+
+{
+	name : 'parent',
+	childs : [{
+		name : 'ch1',
+		childs : [{
+			name : 'ch2',
+			childs : []
+		}, {
+			name : 'ch3',
+			childs : []
+		},{
+			name:'ch4',
+			childs:[]
+		}]
+	}]
+};	
+
+
+```
+		
+
+
 
 
 
