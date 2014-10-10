@@ -5,9 +5,11 @@ A simple recursive tree walker
 
 ###how to use treewalker
 
-treewalker exposes one method ```walktree```
+treewalker exposes two methods ```walktree``` and ```resolveTree```
 
-treewalker expects three parameters ``` parentnode,childkey,callback function ```
+####walktree:-
+
+walktree expects three parameters ``` parentnode,childkey,callback function ```
 
 ```parentnode:-``` first one parent node it should be an object 
 
@@ -110,3 +112,61 @@ ch3
 
 
 ```
+
+####resolveTree:-
+
+resolveTree expects three parameters ``` parentnode,childkey,callback function ```
+
+```parentnode:-``` first one parent node it should be an object 
+
+```childkey:-``` second one childkey is the key  which holds the children of parentnode
+
+```callback``` function should contain compare logic and it should return true when match found
+
+for Example:-
+
+```javascript
+
+var myResult={};
+
+var node = {
+		name : 'parent',
+		childs : [{
+			name : 'ch1',
+			childs : [{
+				name : 'ch2',
+				childs : []
+			}, {
+				name : 'ch3',
+				childs : []
+			}]
+		}]
+	};
+
+	function callback(obj) {
+		if(obj.name=="ch1"){
+			myResult=obj;
+			return true;
+		}
+	};
+	
+	window.resolveTree(node, 'childs', callback);
+	
+	myResult.childs.push({
+		name:'ch4',
+		childs:[]
+	});
+	
+	console.log(node);
+
+```
+####output:-
+
+```javascript
+	
+
+
+```
+
+
+
