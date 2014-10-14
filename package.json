@@ -1,6 +1,6 @@
 {
   "name": "treewalker",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A simple Recursive treewalker",
   "main": "index.js",
   "scripts": {
@@ -25,12 +25,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Prashanth-Nelli/treewalker/issues"
-  },
-  "homepage": "https://github.com/Prashanth-Nelli/treewalker",
-  "readme": "treewalker\n==========\n\nA simple recursive tree walker\n\n###how to use treewalker\n\ntreewalker exposes one method ```walktree```\n\ntreewalker expects three parameters ``` parentnode,childkey,callback function ```\n\n```parentnode:-``` first one parent node it should be an object \n\n```childkey:-``` second one childkey is the key  which holds the children of parentnode\n\nfor Example:-\n\n```javascript\n\t\n\tvar node={\n\t\tname:'parent',\n\t\tchilds:[{\n\t\t\tname:'child1'\n\t\t\tchilds:[]\n\t\t}]\n\t}\n\n```\n\nin the above example ```childkey``` value should be childs and it should be same for children also\n\n```callback fn :-```\n\nafter visiting each node in the parent node this callback function is called with visited node as a \n\nparameter\n\n\n####In Browser:-\n\n\n```javascript\n\nvar node = {\n\tname : 'parent',\n  \tchilds : [{\n\t    name:'ch1',\n\t    childs:[{\n\t    name:'ch2',\n\t    childs:[]\n\t},{\n\t    name:'ch3',\n\t    childs:[]\n\t  }]\n  \t}]\n};\n\nfunction callback(obj) {\n\tconsole.log(obj.name);\n}\n\nwindow.walkTree(node,'childs',callback);\t\n\noutput:-\n\nparent\nch1\nch2\nch1\nch3\n\t\n\n```\n\n####In Node.js:-\n\n\n```javascript\n\n\tvar tree = require('treewalker');\n\n\tvar node = {\n\tname : 'parent',\n\tchilds : [{\n\t\tname : 'ch1',\n\t\tchilds : []\n\t}, {\n\t\tname : 'ch2',\n\t\tchilds : []\n\t}, {\n\t\tname : 'ch3',\n\t\tchilds : []\n\t}]\n};\n\nfunction callback(obj) {\n\tconsole.log(obj.name);\n}\n\ntree.walkTree(node, 'childs', callback);\n\n\noutput:-\n\nparent\nch1\nch2\nch1\nch3\n\n\n```\n",
-  "readmeFilename": "README.md",
-  "gitHead": "370ad48a40cd663f98a4ce5cca0c89e16abd684e",
-  "_id": "treewalker@1.0.0",
-  "_shasum": "069484d679c9c7d36ae33343474f97bb6842abd6",
-  "_from": "treewalker@"
+  } 
 }
