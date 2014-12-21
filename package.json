@@ -4,7 +4,7 @@
   "description": "A simple Recursive treewalker",
   "main": "index.js",
   "scripts": {
-    "test": "node nodemodules/.bin/mocha test/test.js"
+    "test": "node node_modules/.bin/mocha test/test.js"
   },
   "repository": {
     "type": "git",
