@@ -4,7 +4,7 @@
   "description": "A simple Recursive treewalker",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node nodemodules/.bin/mocha test/test.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Prashanth-Nelli/treewalker/issues"
-  } 
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1"
+  }
 }

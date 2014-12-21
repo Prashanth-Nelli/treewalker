@@ -57,10 +57,8 @@
 
 		}
 
-		if ( typeof exports !== 'undefined') {
-			if ( typeof module.exports !== 'undefined' && typeof module !== 'undefined') {
-				exports = module.exports.walkTree = start;
-			}
+		if (exports && module && module.exports) {
+			exports = module.exports = {};
 			exports.walkTree = start;
 			exports.resolveTree = resolveTree;
 		} else {
