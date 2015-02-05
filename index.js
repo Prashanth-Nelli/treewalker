@@ -28,7 +28,8 @@
 
 		function resolveTree(parent, childkey, cb) {
 			var node = parent;
-			var child = childkey; out:
+			var child = childkey;
+			out:
 			for (var i = 0; i < node[child].length; i++) {
 				if (cb(node)) {
 					break out;
@@ -57,7 +58,7 @@
 
 		}
 
-		if (exports && module && module.exports) {
+		if ( typeof exports !== "undefined" && typeof module !== "undefined" && module.exports) {
 			exports = module.exports = {};
 			exports.walkTree = start;
 			exports.resolveTree = resolveTree;
