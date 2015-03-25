@@ -1,6 +1,8 @@
 treewalker
 ==========
 
+[![Join the chat at https://gitter.im/Prashanth-Nelli/treewalker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Prashanth-Nelli/treewalker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![NPM Version](https://img.shields.io/npm/v/treewalker.svg?style=flat)](https://www.npmjs.org/package/treewalker)   [![Build Status](https://travis-ci.org/Prashanth-Nelli/treewalker.svg?branch=master)](https://travis-ci.org/Prashanth-Nelli/treewalker)
 
 
