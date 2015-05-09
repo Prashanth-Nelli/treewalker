@@ -29,29 +29,32 @@
 		function resolveTree(parent, childkey, cb) {
 			var node = parent;
 			var child = childkey;
+			
 			out:
 			for (var i = 0; i < node[child].length; i++) {
-				if (cb(node)) {
+				if (cb(node,[node],0)) {
 					break out;
 				}
-				walkCompare(node[child][i]);
+				walkCompare(node[child][i],node[child],i);
 			}
 
-			function walkCompare(childnode) {
+			function walkCompare(childnode,siblings,index) {
 
-				if (cb(childnode)) {
+				if (cb(childnode,siblings,index)) {
 					return;
 				}
 
 				if (childnode[child].length == 0) {
-					cb(childnode)
+					cb(childnode,siblings,index)
 					return;
-				} Loop:
+				} 
+
+				Loop:
 				for (var j = 0; j < childnode[child].length; j++) {
-					if (cb(childnode[child][j])) {
+					if (cb(childnode[child][j]),childnode[child],j) {
 						break Loop;
 					}
-					walkCompare(childnode[child][j]);
+					walkCompare(childnode[child][j],childnode[child],j);
 				}
 
 			}
