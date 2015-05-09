@@ -273,8 +273,100 @@ var node = {
 
 ```
 		
+``Node Deletion:-``
+
+```javascript
+
+var node = {
+		name : 'parent',
+		childs : [{
+			name : 'ch1',
+			childs : [{
+				name : 'ch2',
+				childs : []
+			}, {
+				name : 'ch3',
+				childs : []
+			}]
+		}]
+	};
+
+	function callback(obj,siblings,index) {
+		if(obj.name === "ch1"){
+		     siblings.splice(index,1);
+		     return true;
+		}
+	};
+	
+	window.resolveTree(node, 'childs', callback);
+	
+	console.log(node);
+
+```
+####output:-
+
+```javascript
+
+{
+	name : 'parent',
+	childs : []
+};	
 
 
+```
 
+
+####In Node.js:-
+
+
+```javascript
+
+var tree = require('treewalker');
+
+var myResult={};
+
+var node = {
+	name : 'parent',
+	childs : [{
+		name : 'ch1',
+		childs : [{
+			name : 'ch2',
+			childs : []
+		}, {
+			name : 'ch3',
+			childs : []
+		}]
+	}]
+};
+
+	function callback(obj,siblings,index) {
+		if (obj.name === "ch2") {
+		     	siblings.splice(index,1);
+			return true;
+	    	}
+	};
+	
+	tree.resolveTree(node, 'childs', callback);
+
+	console.log(node);
+
+```
+####output:-
+
+```javascript
+
+{
+	name : 'parent',
+	childs : [{
+		name : 'ch1',
+		childs : [{
+			name : 'ch3',
+			childs : []
+		}]
+	}]
+};	
+
+
+```
 
 
