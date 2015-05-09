@@ -134,13 +134,24 @@ resolveTree expects three parameters ``` parentnode,childkey,callback function `
 
 ```parentnode:-``` first one parent node it should be an object 
 
-```childkey:-``` second one childkey is the key  which holds the children of parentnode
+```childkey:-```   second one childkey is the key  which holds the children of parentnode
 
-```callback``` function should contain compare logic and it should return true when match found 
+```callback:-```   a function which will be called on every node in the tree.
+                   function should contain compare logic and it should return true when match found
+                   callback function will receive three parameters 
+                   node,siblings,index.
 
+```
+   node:- the current node in the tree
+   siblings:- childs of current node's parent which includes the current node.
+   index:- current node's index position in the parent node's child array.
+   	   this value can be used to delete that node along with all it's 
+   	   children.
+```		   	   
 
+Examples:-
 
-for Example:-
+``Node Addition:-``
 
 ```javascript
 
@@ -160,7 +171,7 @@ var node = {
 		}]
 	};
 
-	function callback(obj) {
+	function callback(obj,siblings,index) {
 		if(obj.name=="ch1"){
 			obj.childs.push({
 			   name : 'ch4',
@@ -223,7 +234,7 @@ var node = {
 	}]
 };
 
-	function callback(obj) {
+	function callback(obj,siblings,index) {
 		if (obj.name == "ch1") {
 			obj.childs.push({
 			   name : 'ch4',
