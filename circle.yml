@@ -1,0 +1,4 @@
+notify:
+  webhooks:
+    # A list of hashes representing hooks. Only the url field is supported.
+    - url: https://qa1-bots.kore.com/hooks/e9e34274474e5919689e7c39abe6960d
